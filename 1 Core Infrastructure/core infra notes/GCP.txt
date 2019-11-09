@@ -1,0 +1,36 @@
+GCP
+
+list of zones
+gcloud compute zones list | grep us-central1
+
+update zone
+gcloud config set compute/zone us-central1-c
+
+new vm
+gcloud compute instances create "my-vm-2" --machine-type "n1-standard-1" --image-project "debian-cloud" --image "debian-9-stretch-v20170918" --subnet "default"
+
+
+ping my-vm-1
+ssh my-vm-1
+
+install server
+sudo apt-get install nginx-light -y
+ 
+ 
+  sudo nano /var/www/html/index.nginx-debian.html 
+  
+  curl http://localhost/
+  curl http://my-vm-1/
+  
+  
+  
+  startup script
+
+apt-get update
+apt-get install apache2 php php-mysql -y
+service apache2 restart
+
+
+
+export LOCATION=US
+gsutil mb -l $LOCATION gs://$DEVSHELL_PROJECT_ID
